@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libslab_allocator.a CMakeFiles/slab_allocator.dir/Slab.cpp.o CMakeFiles/slab_allocator.dir/Pool.cpp.o CMakeFiles/slab_allocator.dir/PoolAllocator.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libslab_allocator.a
