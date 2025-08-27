@@ -1,0 +1,38 @@
+# Exclude build files from GitHub language detection
+*.mk linguist-documentation
+Makefile linguist-documentation
+CMakeLists.txt linguist-documentation
+*.cmake linguist-documentation
+
+# Exclude build directories
+build/ linguist-vendored
+_build/ linguist-vendored
+out/ linguist-vendored
+target/ linguist-vendored
+
+# Exclude generated files
+*.o linguist-vendored
+*.a linguist-vendored
+*.so linguist-vendored
+*.dylib linguist-vendored
+*.exe linguist-vendored
+*.obj linguist-vendored
+*.dll linguist-vendored
+
+# Exclude dependency downloads
+_deps/ linguist-vendored
+deps/ linguist-vendored
+third_party/ linguist-vendored
+vendor/ linguist-vendored
+
+# Mark C++ files as the main language
+*.cpp linguist-language=C++
+*.hpp linguist-language=C++
+*.h linguist-language=C++
+*.cc linguist-language=C++
+*.cxx linguist-language=C++
+
+# Mark documentation files
+*.md linguist-documentation
+*.txt linguist-documentation
+*.rst linguist-documentation
