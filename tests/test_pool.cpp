@@ -2,7 +2,6 @@
 #include <catch2/catch_approx.hpp>
 
 #include "Slab.hpp"
-#include "Pool.hpp"
 #include "PoolAllocator.hpp"
 #include <vector>
 #include <random>
@@ -62,37 +61,7 @@ TEST_CASE("Slab exhaustion and reuse", "[slab]") {
     REQUIRE(slab.allocate() != nullptr);  // Should work again
 }
 
-TEST_CASE("Pool basic functionality", "[pool]") {
-    constexpr std::size_t kChunk = 64;
-    slab::Pool pool{kChunk};
 
-    void* p1 = pool.allocate();
-    REQUIRE(p1 != nullptr);
-
-    pool.deallocate(p1);
-    REQUIRE(pool.empty());
-}
-
-TEST_CASE("Pool multiple slabs", "[pool]") {
-    constexpr std::size_t kChunk = 32;
-    slab::Pool pool{kChunk};
-
-    std::vector<void*> ptrs;
-    
-    // Allocate more than one slab can hold
-    for (int i = 0; i < 1000; ++i) {
-        void* ptr = pool.allocate();
-        REQUIRE(ptr != nullptr);
-        ptrs.push_back(ptr);
-    }
-
-    // Deallocate all
-    for (void* ptr : ptrs) {
-        pool.deallocate(ptr);
-    }
-
-    REQUIRE(pool.empty());
-}
 
 TEST_CASE("PoolAllocator basic functionality", "[pool_allocator]") {
     slab::PoolAllocator allocator;

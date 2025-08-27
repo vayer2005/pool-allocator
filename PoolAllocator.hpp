@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Pool.hpp"
+#include "Slab.hpp"
 #include <cstddef>
 #include <vector>
 

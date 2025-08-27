@@ -13,7 +13,6 @@ endif()
 
 add_library(slab_allocator
     Slab.cpp
-    Pool.cpp
     PoolAllocator.cpp
 )
 

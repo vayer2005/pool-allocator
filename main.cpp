@@ -3,7 +3,6 @@
 #include <chrono>
 #include <random>
 #include "Slab.hpp"
-#include "Pool.hpp"
 #include "PoolAllocator.hpp"
 
 void testSlab() {
@@ -33,32 +32,7 @@ void testSlab() {
     std::cout << std::endl;
 }
 
-void testPool() {
-    std::cout << "=== Testing Pool Allocator ===" << std::endl;
-    
-    slab::Pool pool(32);
-    
-    std::cout << "Allocating 10 chunks..." << std::endl;
-    std::vector<void*> ptrs;
-    for (int i = 0; i < 10; ++i) {
-        void* ptr = pool.allocate();
-        if (ptr) {
-            std::cout << "  Allocated chunk " << i << " at " << ptr << std::endl;
-            ptrs.push_back(ptr);
-        } else {
-            std::cout << "  Failed to allocate chunk " << i << std::endl;
-        }
-    }
-    
-    std::cout << "Deallocating all chunks..." << std::endl;
-    for (void* ptr : ptrs) {
-        pool.deallocate(ptr);
-        std::cout << "  Deallocated chunk at " << ptr << std::endl;
-    }
-    
-    std::cout << "Pool empty: " << (pool.empty() ? "Yes" : "No") << std::endl;
-    std::cout << std::endl;
-}
+
 
 void testPoolAllocator() {
     std::cout << "=== Testing Pool Allocator (Multi-size) ===" << std::endl;
@@ -343,7 +317,6 @@ int main() {
     
     try {
         testSlab();
-        testPool();
         testPoolAllocator();
         testSlabDirect();
         performanceTest();

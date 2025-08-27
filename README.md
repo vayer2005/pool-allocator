@@ -13,7 +13,7 @@ A fast, memory-efficient slab allocator that outperforms standard malloc by up t
 ## Architecture
 
 The allocator uses a direct slab management approach:
-- **PoolAllocator**: Manages multiple slab pools for different chunk sizes
+- **PoolAllocator**: Manages multiple slab collections for different chunk sizes
 - **Slab**: Individual memory blocks divided into fixed-size chunks
 - **Intrusive Free List**: Efficient O(1) allocation/deallocation
 
@@ -74,7 +74,6 @@ The project uses aggressive compiler optimizations by default:
 ```bash
 # Run tests with specific tags
 ./tests "[slab]"        # Run only slab tests
-./tests "[pool]"        # Run only pool tests
 ./tests "[pool_allocator]" # Run only pool allocator tests
 ```
 
