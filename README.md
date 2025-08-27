@@ -2,21 +2,6 @@
 
 A fast, memory-efficient slab allocator that outperforms standard malloc by up to 3.9x for small allocations.
 
-## Features
-
-- **Ultra-fast allocation**: Optimized for small memory blocks (8-1024 bytes)
-- **Memory efficient**: 16KB slabs with minimal overhead
-- **Cache-friendly**: Optimized for CPU cache locality
-- **Branch prediction optimized**: Uses `__builtin_expect()` for better CPU pipeline utilization
-- **Compiler optimized**: Built with `-O3 -march=native` for maximum performance
-
-## Architecture
-
-The allocator uses a direct slab management approach:
-- **PoolAllocator**: Manages multiple slab collections for different chunk sizes
-- **Slab**: Individual memory blocks divided into fixed-size chunks
-- **Intrusive Free List**: Efficient O(1) allocation/deallocation
-
 ## Building the Project
 
 ### Prerequisites
