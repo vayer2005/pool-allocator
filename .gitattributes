@@ -1,14 +1,29 @@
-# Exclude build files from GitHub language detection
-*.mk linguist-documentation
-Makefile linguist-documentation
-CMakeLists.txt linguist-documentation
-*.cmake linguist-documentation
+# Force C++ as the main language
+*.cpp linguist-language=C++
+*.hpp linguist-language=C++
+*.h linguist-language=C++
+*.cc linguist-language=C++
+*.cxx linguist-language=C++
 
-# Exclude build directories
+# Exclude all build and configuration files from language detection
+Makefile linguist-vendored
+*.mk linguist-vendored
+CMakeLists.txt linguist-vendored
+*.cmake linguist-vendored
+*.cmake.in linguist-vendored
+CMakeCache.txt linguist-vendored
+CMakeFiles linguist-vendored
+cmake_install.cmake linguist-vendored
+CTestTestfile.cmake linguist-vendored
+DartConfiguration.tcl linguist-vendored
+
+# Exclude build directories completely
 build/ linguist-vendored
 _build/ linguist-vendored
 out/ linguist-vendored
 target/ linguist-vendored
+bin/ linguist-vendored
+lib/ linguist-vendored
 
 # Exclude generated files
 *.o linguist-vendored
@@ -18,19 +33,13 @@ target/ linguist-vendored
 *.exe linguist-vendored
 *.obj linguist-vendored
 *.dll linguist-vendored
+*.dylib linguist-vendored
 
 # Exclude dependency downloads
 _deps/ linguist-vendored
 deps/ linguist-vendored
 third_party/ linguist-vendored
 vendor/ linguist-vendored
-
-# Mark C++ files as the main language
-*.cpp linguist-language=C++
-*.hpp linguist-language=C++
-*.h linguist-language=C++
-*.cc linguist-language=C++
-*.cxx linguist-language=C++
 
 # Mark documentation files
 *.md linguist-documentation

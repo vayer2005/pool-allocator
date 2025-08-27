@@ -1,0 +1,52 @@
+# Build directories
+build/
+_build/
+out/
+target/
+bin/
+lib/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+DartConfiguration.tcl
+Makefile
+*.cmake
+
+# Object files and libraries
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.obj
+
+# Dependency downloads
+_deps/
+deps/
+third_party/
+vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
